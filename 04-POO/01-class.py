@@ -25,4 +25,5 @@ print(p1.nome)
 print(p2.nome)
 print(type(p1))
 print(p1.falar("Mayara"))
+print(p1.ano_atual)
 
