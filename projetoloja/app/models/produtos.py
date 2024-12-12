@@ -1,5 +1,5 @@
 from sql_alchemy import db
-import time
+
 class Product(db.Model):
     __tablename__ = 'produto'
     id = db.Column(db.String, primary_key=True)
@@ -21,6 +21,13 @@ class Product(db.Model):
     def find_by_id(cls, id):
         
         produto = cls.query.filter_by(id=id).first() # SELECT * FROM hoteis WHERE hotel_id = $hotel_id
+        if produto:
+            return produto
+        return None
+    
+    @classmethod
+    def find_by_name(cls, nome):
+        produto = cls.query.filter_by(nome=nome).first() # SELECT * FROM hoteis WHERE nome = $nome
         if produto:
             return produto
         return None

@@ -20,12 +20,12 @@ services:
     networks:
     - elastic
   
-  # app:
-  #   image: pythonloja1
-  #   ports:
-  #     - 5001:5001
-  #   networks:
-  #   - elastic
+  app:
+    build: .
+    ports:
+      - 5001:5001
+    networks:
+    - elastic
 
   # apm-server:
   #   image: docker.elastic.co/apm/apm-server:7.15.0
