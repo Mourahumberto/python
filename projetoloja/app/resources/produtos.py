@@ -2,9 +2,10 @@ from flask import request
 from flask_restful import Resource, reqparse
 from models.produtos import Product
 from sql_alchemy import db
-
+from flask_jwt_extended import jwt_required
 
 class Home(Resource):
+    @jwt_required()
     def get(self):
         
         return {'produtos' : [produto.json() for produto in Product.query.all()]} #SELECT * FROM users
